@@ -15,17 +15,36 @@ let e = Double(5)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // Variables
 var f = "Another String"
 
-// A string variable
+// A string variable initialized with a literal
 var str = "Hello"
 
+// Appending strings
 str = str + ", World!"
 
+// Standard string functions
 str = str.stringByReplacingOccurrencesOfString("!", withString: "...")
-
 str += " I'm waiting for my coffee."
+
+// Chaining
+str = "Hello, World!"
+str = str.stringByReplacingOccurrencesOfString("!", withString: "...") + " I'm waiting for my coffee."
+
+// Constants
 
 let theWorld = "The world is flat"
 
@@ -33,13 +52,10 @@ let anotherString = theWorld.stringByReplacingOccurrencesOfString("flat", withSt
 
 // theWorld = theWorld.stringByReplacingOccurrencesOfString("flat", withString: "round")
 
-for x in 0...100 {
-	let y = x*x
-}
 
-for x in 1..<5 {
-	print ("The value of x is: \(x)")
-}
+
+
+// Arrays
 
 // A one dimensional array
 let sampleArray = [1, 2, 3, 4, 5]
@@ -53,11 +69,50 @@ let anotherArray = [[1,2,3],
 
 anotherArray
 
-anotherArray[0]		//  The first element of this array is another array
+anotherArray[0]		// The first element of this array is another array
 
-anotherArray[2][1]
+anotherArray[2][1]	// Which element does this access?
 
-// SKIP?
+
+
+
+
+
+
+// For loops
+
+
+for x in 0...100 {
+	let y = x*x
+}
+
+
+// Note debugging/inspecting capabilities of playgrounds...
+
+
+
+for x in 1..<5 {
+	print ("The value of x is: \(x)")
+}
+
+
+
+// Iteration over an array
+
+for subArray in anotherArray {
+	print (subArray)
+}
+
+
+
+
+
+
+
+
+
+// Modern capabilities like "flatmap":
+
 //// Using flatMap to flatten the two dimensional array
 //let flatArray = anotherArray.flatMap() {
 //	$0.map {
@@ -66,6 +121,17 @@ anotherArray[2][1]
 //}
 //
 //flatArray
+
+
+
+
+
+
+
+
+
+
+// Fun with constants and literals (and extensions)
 
 // Directions, in degrees
 let north     =   0.0
@@ -92,6 +158,10 @@ for direction in directions where ((direction % 90.0) < 2.0) {
 
 cardinalDirections
 
+
+
+// Dictionaries
+
 let namedDirections = [ "North"     : north,
                         "NorthEast" : northEast,
                         "East"      : east,
@@ -100,6 +170,21 @@ let namedDirections = [ "North"     : north,
                         "SouthWest" : southWest,
                         "West"      : west,
                         "NorthWest" : northWest ];
+
+// (more on dictionaries and optionals in a minute)
+
+
+
+
+
+
+
+
+
+// Built in types are first-class citizens
+
+// Using extensions to add functionality to classes, structs, and other data types
+
 
 // Extend Swift's "Double" type to provide handy methods to
 // convert degrees to radians and radians to degrees
@@ -116,9 +201,18 @@ extension Double {
 let rad = northWest.asRadians
 let deg = rad.asDegrees
 
+
 //let heading = namedDirections["NorthWest"].asRadians
 
-// Extensions work with literals, too.
+
+
+
+
+
+
+
+// Extensions work with literals for the basic types, too.
+
 
 //// Directions, in radians
 //let north     =   0.0.asRadians
@@ -148,6 +242,14 @@ for direction in directions where direction.isCardinalDirectionInDegrees {
 
 cardinalDirections
 
+
+
+
+
+
+
+// Objective-C bridging lets us use Cocoa classes...
+
 let URL = NSURL(string: "https://www.rogueminds.net/simplemap.txt")!
 do {
 	let webMap = try NSString(contentsOfURL: URL, encoding: NSASCIIStringEncoding)
@@ -157,7 +259,8 @@ do {
 }
 
 
-//: ## About This Sample Project
+
+//: ## About The Sample Project
 //:
 //: The Swift project we'll be modifying attempts to implement the logic for a very simplistic game in which our robotic hero gathers resources necessary to go on a trip. Later refinements of the game introduce a multi-player version in which robots join (and/or switch) teams to share knowledge and complete the quest more quickly. (Though if they meet at the coffee kiosk, they might all hang out together for a while, and cross-team knowledge transfer might happen.)
 //:
