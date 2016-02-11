@@ -41,14 +41,6 @@ class GameLevel {
 
 		var map = [String]()
 
-//		let URL = NSURL(string: "https://www.rogueminds.net/simplemap.txt")!
-//		do {
-//			let webMap = try NSString(contentsOfURL: URL, encoding: NSASCIIStringEncoding)
-//			let lines = webMap.componentsSeparatedByString("\u{0a}")
-//			map = lines
-//		} catch {
-//			print ("Unable to load contents of remote file as a string")
-
 			map = [ "                 t             tttttt    ",
 					"   t            t t  2       tt      tt  ",
 					"    t    3     t t t t      t       r  t ",
@@ -90,7 +82,6 @@ class GameLevel {
 					"    t  m         t                       ",
 					"    t     t   f                 t        "
 			]
-//		}
 		return map
 	}
 	

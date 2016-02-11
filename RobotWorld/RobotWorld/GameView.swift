@@ -9,7 +9,9 @@
 import SceneKit
 
 class GameView: SCNView {
-    
+
+// Uncomment this if you'd like scene items to highlight when you click on them.
+
 //    override func mouseDown(theEvent: NSEvent) {
 //        /* Called when a mouse click occurs */
 //        
@@ -49,13 +51,4 @@ class GameView: SCNView {
 	func makeCameraActive(cameraNode :SCNNode) {
 		self.pointOfView = cameraNode
 	}
-
-	func seekCoffee() {
-
-	}
-
-	func wander() {
-
-	}
-
 }

@@ -16,6 +16,7 @@ struct MapPoint {
 	var z: Float
 }
 
+// Define the types of things that can appear on our game map
 enum TileType : Character {
 	case Open          = " "
 	case Player01Start = "1"
@@ -46,6 +47,8 @@ enum TileType : Character {
 	case BandAids      = "b"
 	case Ship          = "r"
 }
+
+// Write this a better way!
 
 extension Character {
 	var asTileType: TileType {
@@ -82,6 +85,8 @@ extension Character {
 		}
 	}
 }
+
+
 
 class Game {
 	var level : GameLevel
