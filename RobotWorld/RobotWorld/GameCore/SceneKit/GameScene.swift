@@ -130,33 +130,6 @@ class GameScene {
 			let node: SCNNode
 
 			switch type {
-			case TileType.Wall:
-				node = self.wall.clone()
-
-				elevation = CGFloat(0.0)
-
-			case TileType.Tree:
-				let treeType = random() % 5
-				switch treeType {
-				case 0:
-					node = self.tree3.clone()
-
-				case 1:
-					node = self.tree1.clone()
-
-				case 2:
-					node = self.tree3.clone()
-
-				case 3:
-					node = self.tree2.clone()
-
-				case 4:
-					node = self.tree1.clone()
-
-				default:
-					node = self.tree1.clone()
-				}
-
 			case TileType.Coffee:
 				node = self.kiosk.clone()
 
