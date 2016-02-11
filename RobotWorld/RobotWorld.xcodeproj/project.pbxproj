@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD11AD841C5EAA9900EF2D02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AD831C5EAA9900EF2D02 /* AppDelegate.swift */; };
+		DD11AD861C5EAA9900EF2D02 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AD851C5EAA9900EF2D02 /* GameView.swift */; };
+		DD11AD881C5EAA9900EF2D02 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AD871C5EAA9900EF2D02 /* GameViewController.swift */; };
+		DD11AD8A1C5EAA9900EF2D02 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DD11AD891C5EAA9900EF2D02 /* art.scnassets */; };
+		DD11AD8C1C5EAA9900EF2D02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD11AD8B1C5EAA9900EF2D02 /* Assets.xcassets */; };
+		DD11AD8F1C5EAA9900EF2D02 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD11AD8D1C5EAA9900EF2D02 /* MainMenu.xib */; };
+		DDECFDDF1C600BC7005926A7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECFDDD1C600BC7005926A7 /* Game.swift */; };
+		DDECFDE11C600BC7005926A7 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECFDDE1C600BC7005926A7 /* GameLevel.swift */; };
+		DDECFDF61C600BEE005926A7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDECFDF31C600BEE005926A7 /* GameScene.swift */; };
+		DDF756721C6B00B700A63362 /* RobotAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF756711C6B00B700A63362 /* RobotAgent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD11AD801C5EAA9900EF2D02 /* RobotWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobotWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD11AD831C5EAA9900EF2D02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD11AD851C5EAA9900EF2D02 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		DD11AD871C5EAA9900EF2D02 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DD11AD891C5EAA9900EF2D02 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		DD11AD8B1C5EAA9900EF2D02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD11AD8E1C5EAA9900EF2D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DD11AD901C5EAA9900EF2D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD11AD991C5EAA9900EF2D02 /* RobotWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotWorldTests.swift; sourceTree = "<group>"; };
+		DD11AD9B1C5EAA9900EF2D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDECFDDD1C600BC7005926A7 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DDECFDDE1C600BC7005926A7 /* GameLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
+		DDECFDF31C600BEE005926A7 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DDF756711C6B00B700A63362 /* RobotAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotAgent.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD11AD7D1C5EAA9900EF2D02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD11AD771C5EAA9800EF2D02 = {
+			isa = PBXGroup;
+			children = (
+				DD11AD821C5EAA9900EF2D02 /* RobotWorld */,
+				DD11AD981C5EAA9900EF2D02 /* RobotWorldTests */,
+				DD11AD811C5EAA9900EF2D02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD11AD811C5EAA9900EF2D02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD11AD801C5EAA9900EF2D02 /* RobotWorld.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD11AD821C5EAA9900EF2D02 /* RobotWorld */ = {
+			isa = PBXGroup;
+			children = (
+				DD11AD831C5EAA9900EF2D02 /* AppDelegate.swift */,
+				DD11AD851C5EAA9900EF2D02 /* GameView.swift */,
+				DD11AD871C5EAA9900EF2D02 /* GameViewController.swift */,
+				DDECFDDC1C600BC7005926A7 /* GameCore */,
+				DD11AD891C5EAA9900EF2D02 /* art.scnassets */,
+				DD11AD8B1C5EAA9900EF2D02 /* Assets.xcassets */,
+				DD11AD8D1C5EAA9900EF2D02 /* MainMenu.xib */,
+				DD11AD901C5EAA9900EF2D02 /* Info.plist */,
+			);
+			path = RobotWorld;
+			sourceTree = "<group>";
+		};
+		DD11AD981C5EAA9900EF2D02 /* RobotWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD11AD991C5EAA9900EF2D02 /* RobotWorldTests.swift */,
+				DD11AD9B1C5EAA9900EF2D02 /* Info.plist */,
+			);
+			path = RobotWorldTests;
+			sourceTree = "<group>";
+		};
+		DDECFDDC1C600BC7005926A7 /* GameCore */ = {
+			isa = PBXGroup;
+			children = (
+				DDECFDDD1C600BC7005926A7 /* Game.swift */,
+				DDECFDDE1C600BC7005926A7 /* GameLevel.swift */,
+				DDECFDED1C600BE3005926A7 /* RobotStateMachine */,
+				DDECFDF11C600BEE005926A7 /* SceneKit */,
+			);
+			path = GameCore;
+			sourceTree = "<group>";
+		};
+		DDECFDED1C600BE3005926A7 /* RobotStateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				DDF756711C6B00B700A63362 /* RobotAgent.swift */,
+			);
+			path = RobotStateMachine;
+			sourceTree = "<group>";
+		};
+		DDECFDF11C600BEE005926A7 /* SceneKit */ = {
+			isa = PBXGroup;
+			children = (
+				DDECFDF31C600BEE005926A7 /* GameScene.swift */,
+			);
+			path = SceneKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD11AD7F1C5EAA9900EF2D02 /* RobotWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD11AD9E1C5EAA9900EF2D02 /* Build configuration list for PBXNativeTarget "RobotWorld" */;
+			buildPhases = (
+				DD11AD7C1C5EAA9900EF2D02 /* Sources */,
+				DD11AD7D1C5EAA9900EF2D02 /* Frameworks */,
+				DD11AD7E1C5EAA9900EF2D02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RobotWorld;
+			productName = RobotWorld;
+			productReference = DD11AD801C5EAA9900EF2D02 /* RobotWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD11AD781C5EAA9800EF2D02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = RogueMinds.net;
+				TargetAttributes = {
+					DD11AD7F1C5EAA9900EF2D02 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = DD11AD7B1C5EAA9900EF2D02 /* Build configuration list for PBXProject "RobotWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD11AD771C5EAA9800EF2D02;
+			productRefGroup = DD11AD811C5EAA9900EF2D02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD11AD7F1C5EAA9900EF2D02 /* RobotWorld */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD11AD7E1C5EAA9900EF2D02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD11AD8C1C5EAA9900EF2D02 /* Assets.xcassets in Resources */,
+				DD11AD8A1C5EAA9900EF2D02 /* art.scnassets in Resources */,
+				DD11AD8F1C5EAA9900EF2D02 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD11AD7C1C5EAA9900EF2D02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD11AD861C5EAA9900EF2D02 /* GameView.swift in Sources */,
+				DD11AD881C5EAA9900EF2D02 /* GameViewController.swift in Sources */,
+				DD11AD841C5EAA9900EF2D02 /* AppDelegate.swift in Sources */,
+				DDECFDE11C600BC7005926A7 /* GameLevel.swift in Sources */,
+				DDF756721C6B00B700A63362 /* RobotAgent.swift in Sources */,
+				DDECFDDF1C600BC7005926A7 /* Game.swift in Sources */,
+				DDECFDF61C600BEE005926A7 /* GameScene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD11AD8D1C5EAA9900EF2D02 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD11AD8E1C5EAA9900EF2D02 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD11AD9C1C5EAA9900EF2D02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD11AD9D1C5EAA9900EF2D02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DD11AD9F1C5EAA9900EF2D02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RobotWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.rogueminds.RobotWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD11ADA01C5EAA9900EF2D02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = RobotWorld/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.rogueminds.RobotWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD11AD7B1C5EAA9900EF2D02 /* Build configuration list for PBXProject "RobotWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD11AD9C1C5EAA9900EF2D02 /* Debug */,
+				DD11AD9D1C5EAA9900EF2D02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD11AD9E1C5EAA9900EF2D02 /* Build configuration list for PBXNativeTarget "RobotWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD11AD9F1C5EAA9900EF2D02 /* Debug */,
+				DD11ADA01C5EAA9900EF2D02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD11AD781C5EAA9800EF2D02 /* Project object */;
+}
