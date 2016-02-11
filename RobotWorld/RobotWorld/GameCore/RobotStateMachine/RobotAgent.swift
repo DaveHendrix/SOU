@@ -31,7 +31,7 @@ enum RobotMandate {
 
 class RobotAgent: GKAgent2D, GKAgentDelegate {
 
-	private var gridObstacles   : [GKGridGraphNode] = []
+//	private var gridObstacles   : [GKGridGraphNode] = []
 	private var obstacleObjects : [GKPolygonObstacle] = []
 	private var wallObjects     : [GKPolygonObstacle] = []
 
@@ -85,6 +85,75 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 		updateBehavior()
 	}
 	
+	func setObstacles(locations: [MapPoint]) {
+//		gridObstacles.removeAll()
+		obstacleObjects.removeAll()
+		for location in locations {
+
+			let obstaclePolygon = polygonObstacle(-location.x, y: location.z, width: 1.0, height: 1.0)
+			obstacleObjects.append(obstaclePolygon)
+
+//			// Add obstacle locations as graphnodes -- which we will REMOVE from the grid of navigable places
+//			let gridObstacleLocation = vector_int2(x: Int32(location.x), y: Int32(location.z))
+//			guard let gridObstacle = graph.nodeAtGridPosition(gridObstacleLocation) else {
+//				continue
+//			}
+//			gridObstacles.append(gridObstacle)
+//
+		}
+//		graph.removeNodes(gridObstacles)
+
+		updateBehavior()
+	}
+
+	func polygonObstacle(x: Float, y: Float, width: Float, height: Float) -> GKPolygonObstacle {
+		let leftX   = x - (width  / 2.0)
+		let bottomY = y - (height / 2.0)
+		let rightX  = x + (width  / 2.0)
+		let topY    = y + (height / 2.0)
+
+		let points = [
+			vector_float2(leftX, bottomY),
+			vector_float2(leftX, topY),
+			vector_float2(rightX, topY),
+			vector_float2(rightX, bottomY),
+			vector_float2(leftX, bottomY)
+		]
+
+		return GKPolygonObstacle(points: UnsafeMutablePointer(points), count: 5)
+	}
+
+	func updateBehavior() {
+		if (worldHeight < 1.0) || (worldWidth < 1.0) {
+			return
+		}
+
+//		graph = GKGridGraph.init(fromGridStartingAt: vector_int2(x: worldOffsetX, y: worldOffsetY), width: Int32(worldWidth), height: Int32(worldHeight), diagonalsAllowed: false)
+//
+//		graph.removeNodes(gridObstacles)
+//
+		let thingsToAvoid = obstacleObjects + wallObjects
+
+		avoidObstaclesGoal = GKGoal(toAvoidObstacles: thingsToAvoid, maxPredictionTime: 1.0)
+
+		var goalDictionary = [GKGoal : NSNumber]()
+
+		switch mandate {
+		case .Wander:
+			goalDictionary[avoidObstaclesGoal] = 4
+			goalDictionary[wanderGoal] = 3
+
+//		case .Fetch:
+//			goalDictionary[fetchGoal] = 10
+//
+		default:
+			goalDictionary[avoidObstaclesGoal] = 10
+		}
+
+		self.behavior?.removeAllGoals()
+		self.behavior = GKBehavior(weightedGoals: goalDictionary)
+	}
+
 	func setTarget (targetLocation: MapPoint) {
 		let myLocation = vector_int2(x: Int32(self.position.x), y: Int32(self.position.y))
 		guard let myNode : GKGridGraphNode = graph.nodeAtGridPosition(myLocation) else {
@@ -123,73 +192,9 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 			updateBehavior()
 		}
 	}
-
-	func setObstacles(locations: [MapPoint]) {
-		gridObstacles.removeAll()
-		obstacleObjects.removeAll()
-		for location in locations {
-
-
-			let obstaclePolygon = polygonObstacle(-location.x, y: location.z, width: 1.0, height: 1.0)
-			obstacleObjects.append(obstaclePolygon)
-
-			let gridObstacleLocation = vector_int2(x: Int32(location.x), y: Int32(location.z))
-			guard let gridObstacle = graph.nodeAtGridPosition(gridObstacleLocation) else {
-				continue
-			}
-			gridObstacles.append(gridObstacle)
-
-		}
-		graph.removeNodes(gridObstacles)
-
-		updateBehavior()
-	}
-
-	func polygonObstacle(x: Float, y: Float, width: Float, height: Float) -> GKPolygonObstacle {
-		let leftX   = x - (width  / 2.0)
-		let bottomY = y - (height / 2.0)
-		let rightX  = x + (width  / 2.0)
-		let topY    = y + (height / 2.0)
-
-		let points = [
-			vector_float2(leftX, bottomY),
-			vector_float2(leftX, topY),
-			vector_float2(rightX, topY),
-			vector_float2(rightX, bottomY),
-			vector_float2(leftX, bottomY)
-		]
-
-		return GKPolygonObstacle(points: UnsafeMutablePointer(points), count: 5)
-	}
-
-	func updateBehavior() {
-		if (worldHeight < 1.0) || (worldWidth < 1.0) {
-			return
-		}
-
-		graph = GKGridGraph.init(fromGridStartingAt: vector_int2(x: worldOffsetX, y: worldOffsetY), width: Int32(worldWidth), height: Int32(worldHeight), diagonalsAllowed: false)
-
-		graph.removeNodes(gridObstacles)
-
-		let thingsToAvoid = obstacleObjects + wallObjects
-
-		avoidObstaclesGoal = GKGoal(toAvoidObstacles: thingsToAvoid, maxPredictionTime: 1.0)
-
-		var goalDictionary = [GKGoal : NSNumber]()
-
-		switch mandate {
-		case .Wander:
-			goalDictionary[avoidObstaclesGoal] = 4
-			goalDictionary[wanderGoal] = 3
-
-		case .Fetch:
-			goalDictionary[fetchGoal] = 10
-		}
-
-		self.behavior?.removeAllGoals()
-		self.behavior = GKBehavior(weightedGoals: goalDictionary)
-	}
-
+	
+	// MARK: Delegate methods
+	
 	func agentWillUpdate(agent: GKAgent) {
 	}
 
@@ -197,7 +202,8 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 		sceneNode.position.x = CGFloat(self.position.x)
 		sceneNode.position.z = CGFloat(self.position.y)
 		sceneNode.eulerAngles = SCNVector3(0.0, -self.rotation + Float(M_PI/2.0), 0.0)
-		print ("loc x: \(self.position.x), y: \(self.position.y)")
+
+//		print ("loc x: \(self.position.x), y: \(self.position.y)")
 
 		setTarget(target) // Reset the path and goal based on new position
 	}
