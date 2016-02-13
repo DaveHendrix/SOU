@@ -74,7 +74,12 @@ class GameScene {
 		let playerZ = game.level.players[0].z
 		players[0].position = SCNVector3(x: CGFloat(playerX), y: 0, z: CGFloat(playerZ))
 
-//		// Rotate the robot
+//		// Add a second copy of the robot at 0,0,0
+//		let newRobot = players[0].clone()
+//		newRobot.position = SCNVector3(x: CGFloat(0.0), y: 0, z: CGFloat(0.0))
+//		scene.rootNode.addChildNode(newRobot)
+//
+//		// Rotate the first robot
 //		let animation = CABasicAnimation(keyPath: "rotation")
 //		animation.toValue = NSValue(SCNVector4: SCNVector4(x: CGFloat(0), y: CGFloat(1), z: CGFloat(0), w: CGFloat(M_PI)*2))
 //		animation.duration = 15.0
@@ -94,19 +99,17 @@ class GameScene {
 		gameView!.backgroundColor = NSColor.blackColor()
 
 		// create walls
-		let northWall = self.wall.clone()
-		northWall.scale = SCNVector3(x: CGFloat(game.level.width + 3.0), y: 1.0, z: 1.0)
-		northWall.position = SCNVector3(x: 0.0, y: 0.0, z:  CGFloat(game.level.height/2.0 + 1.0))
+		let northWall = SCNNode(geometry: SCNBox(width: CGFloat(game.level.width) + 2.0, height: 1.0, length: 1.0, chamferRadius: 0.15))
+		northWall.position = SCNVector3(x: 0.0, y: 0.0, z: -CGFloat((game.level.height/2.0) + 0.5))
 
 		let southWall = northWall.clone()
-		southWall.position = SCNVector3(x: 0.0, y: 0.0, z: -CGFloat(game.level.height/2.0 + 1.0))
+		southWall.position = SCNVector3(x: 0.0, y: 0.0, z: CGFloat(game.level.height/2.0 + 0.5))
 
-		let westWall = self.wall.clone()
-		westWall.scale = SCNVector3(x: 1.0, y: 1.0, z: CGFloat(game.level.height + 3.0))
-		westWall.position = SCNVector3(x: -CGFloat(game.level.width/2.0 + 1.0), y: 0.0, z: 0.0)
+		let westWall = SCNNode(geometry: SCNBox(width: 1.0, height: 1.0, length: CGFloat(game.level.height) + 2.0, chamferRadius: 0.15))
+		westWall.position = SCNVector3(x: -CGFloat(game.level.width/2.0 + 0.5), y: 0.0, z: 0.0)
 
 		let eastWall = westWall.clone()
-		eastWall.position = SCNVector3(x:  CGFloat(game.level.width/2.0 + 1.0), y: 0.0, z: 0.0)
+		eastWall.position = SCNVector3(x:  CGFloat(game.level.width/2.0 + 0.5), y: 0.0, z: 0.0)
 
 		scene.rootNode.addChildNode(northWall)
 		scene.rootNode.addChildNode(southWall)
@@ -130,6 +133,10 @@ class GameScene {
 			let node: SCNNode
 
 			switch type {
+
+			case TileType.Tree:
+				node = self.tree2.clone()
+				
 			case TileType.Coffee:
 				node = self.kiosk.clone()
 

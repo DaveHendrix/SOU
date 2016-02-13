@@ -53,7 +53,7 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 	var sceneOffsetZ       = Float(0.0)
 
 	func configure(newNode :SCNNode) {
-		let newPosition = vector_float2(-Float(newNode.position.x), Float(newNode.position.z))
+		let newPosition = vector_float2(Float(newNode.position.x), -Float(newNode.position.z))
 		sceneNode = newNode
 		self.delegate = self
 		self.position = newPosition
@@ -69,18 +69,18 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 	func setWorldBounds(width: Float, height: Float) {
 		worldWidth   = width
 		worldHeight  = height
-		sceneOffsetX = width / 2.0
-		sceneOffsetZ = height / 2.0
-		worldOffsetX = 0 - Int32(width / 2.0)
-		worldOffsetY = 0 - Int32(height / 2.0)
 
-		let northWall = polygonObstacle(0.0, y:  sceneOffsetZ - 1.0, width: width, height: 1.0)
-		let southWall = polygonObstacle(0.0, y: -sceneOffsetZ + 0.0, width: width, height: 1.0)
+		let northWall = polygonObstacle(-0.0,  y: height / 2.0 + 0.25, width: width + 1.0, height: 0.5)
+		let southWall = polygonObstacle(-0.0,  y: -0.25,               width: width + 1.0, height: 0.5)
 
-		let eastWall  = polygonObstacle(-sceneOffsetX - 1.0, y: 0.0, width: 1.0, height: height)
-		let westWall  = polygonObstacle( sceneOffsetX + 0.0, y: 0.0, width: 1.0, height: height)
+		let eastWall  = polygonObstacle(-width / 2.0 - 0.25, y: 0.0, width: 0.5, height: height + 1.0)
+		let westWall  = polygonObstacle( width / 2.0 + 0.25, y: 0.0, width: 0.5, height: height + 1.0)
 
 		wallObjects = [northWall, southWall, eastWall, westWall]
+
+		for thing in wallObjects {
+			print ("Obstacle: \(thing.vertexAtIndex(0)), \(thing.vertexAtIndex(1)), \(thing.vertexAtIndex(2)), \(thing.vertexAtIndex(3)).")
+		}
 
 		updateBehavior()
 	}
@@ -90,7 +90,7 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 		obstacleObjects.removeAll()
 		for location in locations {
 
-			let obstaclePolygon = polygonObstacle(-location.x, y: location.z, width: 1.0, height: 1.0)
+			let obstaclePolygon = polygonObstacle(location.x + 0.5, y: location.z + 0.5, width: 1.0, height: 1.0)
 			obstacleObjects.append(obstaclePolygon)
 
 //			// Add obstacle locations as graphnodes -- which we will REMOVE from the grid of navigable places
@@ -199,9 +199,9 @@ class RobotAgent: GKAgent2D, GKAgentDelegate {
 	}
 
 	func agentDidUpdate(_: GKAgent) {
-		sceneNode.position.x = CGFloat(self.position.x)
-		sceneNode.position.z = CGFloat(self.position.y)
-		sceneNode.eulerAngles = SCNVector3(0.0, -self.rotation + Float(M_PI/2.0), 0.0)
+		sceneNode.position.x =  CGFloat(self.position.x)
+		sceneNode.position.z = -CGFloat(self.position.y)
+		sceneNode.eulerAngles = SCNVector3(0.0, self.rotation + Float(M_PI/2.0), 0.0)
 
 //		print ("loc x: \(self.position.x), y: \(self.position.y)")
 

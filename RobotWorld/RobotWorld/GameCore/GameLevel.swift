@@ -41,47 +41,53 @@ class GameLevel {
 
 		var map = [String]()
 
-			map = [ "                 t             tttttt    ",
-					"   t            t t  2       tt      tt  ",
-					"    t    3     t t t t      t       r  t ",
-					"  tt          t t t t t     t            ",
-					" t   b  t          t        t  4       t ",
-					"   t      t                  tt      tt  ",
-					"      t  ttt ttttt             ttttt     ",
-					" tttt    t       t      b                ",
-					"    t    t   f   t                       ",
-					"   r t   t       t        ttttttttt      ",
-					"     t   ttttttttt  m     t       t      ",
-					"     t                b    t   b  t      ",
-					"   tt tt     t  tttttttt          t      ",
-					"   t    t     t  t  m t   t  t    t     b",
-					"  b       ttt tt  t  t    tt  t   t      ",
-					"            t   t  t      t t     t      ",
-					" t         ttt  tt tttttttt ttttt t      ",
-					"  t  1  t  tt             t       t      ",
-					"   t    t  t  tt tt  tttt   tt tt        ",
-					"    t   tttt   t t    t      ttttttt     ",
-					"     t         t        t t        t     ",
-					"      t    t tttt www t t t tttttt  t    ",
-					"         ttt   t        t   t       t t  ",
-					"           t   tttttttttt t t   ttttt t  ",
-					"  t     t  t           t    t         t  ",
-					"  t tttt   ttttttttt   tttttt     ttt t  ",
-					"     t        t    t        t  t         ",
-					"      t      wwwwwwww  www     ttt       ",
-					"       t                      t          ",
-					"        t    w t       t w   t           ",
-					"       tt    w           w  t            ",
-					"         tt  w     c                f    ",
-					"    t        w           w      m        ",
-					"      t      w t       t w               ",
-					"  t t                    w               ",
-					"             wwwwwwwwwwwww     t         ",
-					"    t t t         t t              r     ",
-					"  t       t   t       t      t           ",
-					"    t  m         t                       ",
-					"    t     t   f                 t        "
-			]
+//			map = [ "                 t             tttttt    ",
+//					"   t            t t  2       tt      tt  ",
+//					"    t    3     t t t t      t       r  t ",
+//					"  tt          t t t t t     t            ",
+//					" t   b  t          t        t  4       t ",
+//					"   t      t                  tt      tt  ",
+//					"      t  ttt ttttt             ttttt     ",
+//					" tttt    t       t      b                ",
+//					"    t    t   f   t                       ",
+//					"   r t   t       t        ttttttttt      ",
+//					"     t   ttttttttt  m     t       t      ",
+//					"     t                b    t   b  t      ",
+//					"   tt tt     t  tttttttt          t      ",
+//					"   t    t     t  t  m t   t  t    t     b",
+//					"  b       ttt tt  t  t    tt  t   t      ",
+//					"            t   t  t      t t     t      ",
+//					" t         ttt  tt tttttttt ttttt t      ",
+//					"  t  1  t  tt             t       t      ",
+//					"   t    t  t  tt tt  tttt   tt tt        ",
+//					"    t   tttt   t t    t      ttttttt     ",
+//					"     t         t        t t        t     ",
+//					"      t    t tttt www t t t tttttt  t    ",
+//					"         ttt   t        t   t       t t  ",
+//					"           t   tttttttttt t t   ttttt t  ",
+//					"  t     t  t           t    t         t  ",
+//					"  t tttt   ttttttttt   tttttt     ttt t  ",
+//					"     t        t    t        t  t         ",
+//					"      t      wwwwwwww  www     ttt       ",
+//					"       t                      t          ",
+//					"        t    w t       t w   t           ",
+//					"       tt    w           w  t            ",
+//					"         tt  w     c                f    ",
+//					"    t        w           w      m        ",
+//					"      t      w t       t w               ",
+//					"  t t                    w               ",
+//					"             wwwwwwwwwwwww     t         ",
+//					"    t t t         t t              r     ",
+//					"  t       t   t       t      t           ",
+//					"    t  m         t                       ",
+//					"    t     t   f                 t        "
+//			]
+		map = [
+			" 1   w",
+			"t   m ",
+			"      ",
+			"tt   c"
+		]
 		return map
 	}
 	
@@ -89,10 +95,10 @@ class GameLevel {
 
 		var points = [MapPoint]()
 
-		var yPosition = -Float(self.height / 2.0)
+		var yPosition = -Float(self.height / 2.0) + 0.5
 		
 		for textLine in self.asciiMap {
-			var xPosition = -Float(self.width / 2.0)
+			var xPosition = -Float(self.width / 2.0) + 0.5
 			for character in textLine.characters {
 				if character.asTileType == desiredType {
 					points.append(MapPoint(x: xPosition, z: yPosition))
@@ -134,24 +140,5 @@ class GameLevel {
 		ships        = scanMapForTileTypes(TileType.Ship)
 
 		players     = scanMapForTileTypes(TileType.Player01Start)
-		players    += scanMapForTileTypes(TileType.Player02Start)
-		players    += scanMapForTileTypes(TileType.Player03Start)
-		players    += scanMapForTileTypes(TileType.Player04Start)
-		players    += scanMapForTileTypes(TileType.Player05Start)
-		players    += scanMapForTileTypes(TileType.Player06Start)
-		players    += scanMapForTileTypes(TileType.Player07Start)
-		players    += scanMapForTileTypes(TileType.Player08Start)
-		players    += scanMapForTileTypes(TileType.Player09Start)
-		players    += scanMapForTileTypes(TileType.Player10Start)
-		players    += scanMapForTileTypes(TileType.Player11Start)
-		players    += scanMapForTileTypes(TileType.Player12Start)
-		players    += scanMapForTileTypes(TileType.Player13Start)
-		players    += scanMapForTileTypes(TileType.Player14Start)
-		players    += scanMapForTileTypes(TileType.Player15Start)
-		players    += scanMapForTileTypes(TileType.Player16Start)
-		players    += scanMapForTileTypes(TileType.Player17Start)
-		players    += scanMapForTileTypes(TileType.Player18Start)
-		players    += scanMapForTileTypes(TileType.Player19Start)
-		players    += scanMapForTileTypes(TileType.Player20Start)
 	}
 }

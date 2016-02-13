@@ -48,12 +48,15 @@ class GameViewController: NSViewController, SCNSceneRendererDelegate {
 	}
 	
 	@IBAction func switchToShoulderCam(sender: AnyObject) {
+		gameView.makeCameraActive(scene.playerCam)
 	}
 	
 	@IBAction func switchToSkyCam(sender: AnyObject) {
+		gameView.makeCameraActive(scene.skyCam)
 	}
 	
 	@IBAction func switchToCoffeeCam(sender: AnyObject) {
+		gameView.makeCameraActive(scene.coffeeCam)
 	}
 
 	@IBAction func play(sender: AnyObject) {
